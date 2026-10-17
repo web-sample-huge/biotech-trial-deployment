@@ -1,0 +1,99 @@
+/* CircularGallery wrapper */
+.circular-gallery-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.circular-gallery {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.circular-gallery:active {
+    cursor: grabbing;
+}
+
+/* Navigation arrows */
+.cg-arrow {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.cg-arrow:hover {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.cg-arrow-left {
+    left: 1rem;
+}
+
+.cg-arrow-right {
+    right: 1rem;
+}
+
+/* Dot indicators */
+.cg-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.cg-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease, transform 0.3s ease, width 0.3s ease;
+}
+
+.cg-dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.cg-dot-active {
+    background: rgb(34, 197, 94);
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .cg-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .cg-arrow-left {
+        left: 0.5rem;
+    }
+
+    .cg-arrow-right {
+        right: 0.5rem;
+    }
+}

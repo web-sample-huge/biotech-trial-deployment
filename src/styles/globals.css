@@ -1,0 +1,611 @@
+@import "tailwindcss";
+
+/* ============================================
+   ARD BIOTECH - ACTIVE THEORY INSPIRED DESIGN
+   Complete Fresh Start
+   ============================================ */
+
+/* REMON Font */
+@font-face {
+  font-family: 'REMON';
+  src: url('/fonts/REMON.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Hedvig Font */
+@font-face {
+  font-family: 'Hedvig';
+  src: url('/fonts/Hedvig.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Kalnia Font - For Section Headings */
+@font-face {
+  font-family: 'Kalnia';
+  src: url('/fonts/Kalnia.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Calistha Font - For Subject Text */
+@font-face {
+  font-family: 'Calistha';
+  src: url('/fonts/Calistha.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   CSS CUSTOM PROPERTIES
+   ============================================ */
+:root {
+  /* Typography */
+  --font-display: var(--font-playfair), 'Playfair Display', serif;
+  --font-body: var(--font-montserrat), 'Montserrat', sans-serif;
+
+  /* Fluid Type Scale - Massive Headlines */
+  --text-hero: clamp(4rem, 15vw, 12rem);
+  --text-display: clamp(2.5rem, 8vw, 6rem);
+  --text-heading: clamp(1.5rem, 4vw, 3rem);
+  --text-body: clamp(0.875rem, 1.2vw, 1.125rem);
+  --text-small: clamp(0.75rem, 1vw, 0.875rem);
+
+  /* Colors - Deep Obsidian Aesthetic */
+  --color-bg: #050505;
+  --color-text: #FFFFFF;
+  --color-text-dim: rgba(255, 255, 255, 0.6);
+  --color-text-muted: rgba(255, 255, 255, 0.4);
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  /* Accent Colors */
+  /* Primary Color (The R&D Gold) */
+  --color-accent-gold: #D4AF37;
+  /* Secondary Color (The Science Neon) */
+  --color-accent-blue: #00D4FF;
+  --color-accent-green: #39FF14;
+
+  /* Spacing */
+  --space-xs: clamp(0.5rem, 1vw, 1rem);
+  --space-sm: clamp(1rem, 2vw, 2rem);
+  --space-md: clamp(2rem, 4vw, 4rem);
+  --space-lg: clamp(4rem, 8vw, 8rem);
+  --space-xl: clamp(6rem, 12vw, 12rem);
+
+  /* Page Gutter */
+  --gutter: clamp(1.5rem, 5vw, 6rem);
+}
+
+/* ============================================
+   BASE RESET
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Hide Scrollbar - Active Theory Style */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.text-hero {
+  font-size: var(--text-hero);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.text-display {
+  font-size: var(--text-display);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.0;
+}
+
+.text-heading {
+  font-size: var(--text-heading);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.text-body {
+  font-size: var(--text-body);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-dim);
+}
+
+.text-small {
+  font-size: var(--text-small);
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   LAYOUT COMPONENTS
+   ============================================ */
+
+/* Full-Screen Section */
+.section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-lg) var(--gutter);
+  position: relative;
+}
+
+/* Content Container */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid-2 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: fixed;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: var(--text-small);
+  font-weight: 400;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-accent-green);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--color-accent-gold);
+  background: var(--color-accent-gold);
+  color: var(--color-bg);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #F9E27E;
+  color: var(--color-bg);
+  box-shadow: 0 0 20px var(--color-accent-gold);
+}
+
+.btn-accent {
+  border-color: var(--color-accent-blue);
+  background: var(--color-accent-blue);
+  color: var(--color-bg);
+}
+
+.btn-accent:hover {
+  background: #33e1ff;
+  color: var(--color-bg);
+  box-shadow: 0 0 20px var(--color-accent-blue);
+}
+
+/* ============================================
+   SCROLL INDICATOR
+   ============================================ */
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom,
+      transparent,
+      var(--color-text-muted),
+      transparent);
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scroll-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1.2);
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Staggered delays */
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.delay-4 {
+  animation-delay: 0.4s;
+}
+
+.delay-5 {
+  animation-delay: 0.5s;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-dim {
+  color: var(--color-text-dim);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-green {
+  color: var(--color-accent-green);
+}
+
+.text-gold {
+  color: var(--color-accent-gold);
+}
+
+.text-blue {
+  color: var(--color-accent-blue);
+}
+
+.mt-sm {
+  margin-top: var(--space-sm);
+}
+
+.mt-md {
+  margin-top: var(--space-md);
+}
+
+.mt-lg {
+  margin-top: var(--space-lg);
+}
+
+.mb-sm {
+  margin-bottom: var(--space-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--space-md);
+}
+
+/* ============================================
+   LOTTIE BACKGROUND CONTAINER
+   ============================================ */
+.lottie-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+/* ============================================
+   3D HERO WRAPPER
+   ============================================ */
+.hero-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+  .section {
+    padding: var(--space-md) var(--gutter);
+  }
+
+  .container {
+    max-width: 100%;
+  }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+  :root {
+    --gutter: 1rem;
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+  }
+
+  .section {
+    min-height: auto;
+    padding: var(--space-lg) var(--gutter);
+  }
+
+  .text-hero {
+    font-size: clamp(2rem, 10vw, 4rem);
+    line-height: 1.1;
+  }
+
+  .text-display {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    line-height: 1.1;
+  }
+
+  .text-heading {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .text-body {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .text-small {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* Button adjustments */
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Grid adjustments */
+  .grid {
+    gap: var(--space-sm);
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    bottom: var(--space-sm);
+  }
+
+  .scroll-line {
+    height: 40px;
+  }
+}
+
+/* Small Mobile Breakpoint */
+@media (max-width: 480px) {
+  :root {
+    --gutter: 0.75rem;
+  }
+
+  .text-hero {
+    font-size: clamp(1.75rem, 9vw, 3rem);
+  }
+
+  .text-display {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+  }
+
+  .text-heading {
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+  }
+
+  .section {
+    padding: var(--space-md) var(--gutter);
+  }
+
+  .btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================
+   FOUNDERS SECTION MOBILE STYLES
+   ============================================ */
+@media (max-width: 768px) {
+  .founders-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* ============================================
+   CIRCULAR GALLERY MOBILE STYLES
+   ============================================ */
+@media (max-width: 768px) {
+  .circular-gallery-container {
+    height: 400px !important;
+  }
+}
+
+/* ============================================
+   HERO SECTION MOBILE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  .hero-logo {
+    max-width: 200px !important;
+  }
+}
